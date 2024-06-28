@@ -1,113 +1,124 @@
+//next
 import Image from "next/image";
+import Link from "next/link";
+
+//custom
+import CategoryCard from "@/components/cards/category_card";
+// import ScrollingCarousel, {iCarouselItem}  from "@/components/banners/scrolling_carousel";
+
+
+// const apparelBannerItem:iCarouselItem = {
+//   text: "APPAREL",
+//   href: "/shop"
+// }
+// const accessoriesBannerItem:iCarouselItem = {
+//   text: "ACCESSORIES",
+//   href: "/shop"
+// }
+// const shirtsBannerItem:iCarouselItem = {
+//   text: "SHIRTS",
+//   href: "/shop"
+// }
+// const pantsBannerItem:iCarouselItem = {
+//   text: "PANTS",
+//   href: "/shop"
+// }
+// const hatsBannerItem:iCarouselItem = {
+//   text: "HATS",
+//   href: "/shop"
+// }
+
+// const bannerItems = [ apparelBannerItem, accessoriesBannerItem, shirtsBannerItem, pantsBannerItem, hatsBannerItem]
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+    <main className="flex min-h-screen flex-col items-center justify-start px-24">
+
+      
+      {/* Hero Section BEGIN */}
+      <section className="bg-gradient-radial from-white to-transparent w-screen rounded-lg shadow-md border-gray-400 mb-5">
+        <div className="relative w-full">
+          {/* banner section */}
+          {/* <div className="gap-x-4 z-10 absolute top-1/3 -translate-x-1/2 -rotate-45 w-screen  h-20 hidden md:flex justify-center">
+              <ScrollingCarousel items={bannerItems} />
+          </div> */}
+          
+          
+
+          {/* hero image */}
+          <Image 
+            className="rounded-lg w-full z-0 md:w-screen "
+            src="/static_void_hero.png" 
+            alt="static void dots pattern" 
+
+            width={0} height={0} 
+            sizes="100vw"
+            style={{width: "100vw", maxHeight:"600px", objectFit: "fill"}}
+          />
+          <h1 
+            style={{fontFamily: "monospace"}}
+            className=" px-4 absolute top-1/2 left-1/2 lg:text-5xl w-screen md:text-4xl text-3xl -translate-x-1/2 -translate-y-1/2 text-center shadow-md bg-gradient-radial from-black/10 to-transparent font-semibold"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            INTRODUCING THE <span className="bg-gradient-radial from-violet-400 to-pink-300 bg-clip-text text-transparent">STATIC VOID</span> COLLECTION
+          </h1>
+
+
+          <Link 
+            style={{fontFamily:"monospace"}}
+            className="bg-black px-5 py-2 text-white rounded-xl absolute bottom-10 right-10 hover:bg-white/50 hover:text-black  transition-colors sm:text-3xl text-lg"            
+            href="/shop">
+            
+            Shop Now!
+          </Link>
         </div>
-      </div>
+      </section>
+      {/* Hero Section END */}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+
+      {/* Categories Section */}
+      <section className="w-full gap-x-10 gap-y-20 md:pt-24 px-5 relative mt-12 grid grid-cols-2 place-items-center md:grid-cols-2  xl:grid-cols-4 ">
+        <h2 className="md:absolute md:left-5 md:top-0 text-5xl font-bold">
+          Categories
+        </h2>
+        <span className="block md:hidden"></span>
+
+
+        <CategoryCard 
+          title="Shirts"
+          image_url="/featuered_sweatshirt.png"
+          category_id="1"
         />
-      </div>
+        <CategoryCard 
+          title="Pants"
+          image_url="/featured_pants.png"
+          category_id="2"
+        />
+        <CategoryCard 
+          title="Hats"
+          image_url="/white_hat.png"
+          category_id="3"
+        />
+        <CategoryCard 
+          title="Accessories"
+          image_url="/sticker.png"
+          category_id="4"
+        />
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      
+      
+      
+      </section>
+      {/* Categories Section End */}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      {/*  */}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+
+
+
+
     </main>
   );
 }
